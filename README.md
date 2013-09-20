@@ -4,10 +4,21 @@ mix in an EventEmitter to your constructor
 ## usage
 ```js
 var eek = require('eek')
+
+var foo = eek(function foo() {
+  this.isAFoo = true
+})
+
+var bar = new foo()
+bar instanceof foo
+// => true
+
+bar.on('foo', function (val) {
+  // this is called
+  // val => 23
+})
+bar.emit('foo', 23)
 ```
-
-
-## api
 
 
 ## installation
